@@ -21,19 +21,21 @@
 
     <data>
         <report id="action_monivertical_report_saleorder_document"
-                string="Monivertical Quotation / Order"
+                string="Presupuesto / Pedido"
                 model="sale.order" 
                 report_type="qweb-pdf"
                 file="monivertical_report_customization.report_saleorder" 
                 name="monivertical_report_customization.report_saleorder"
+                print_report_name="('Sale_Order' if object.state == 'sale' else 'Presupuesto-') +object.partner_id.name+'-'+ object.name + '.pdf'"
         />
 
         <report id="action_fxo_report_saleorder_custom"
-                string="FXO Quotation / Order"
+                string="Cotización / Personalizada"
                 model="sale.order" 
                 report_type="qweb-pdf"
                 file="monivertical_report_customization.fxo_report_saleorder_custom" 
                 name="monivertical_report_customization.fxo_report_saleorder_custom"
+                print_report_name="('Sale_Order' if object.state == 'sale' else 'Presupuesto-') +object.partner_id.name+'-'+ object.name + '.pdf'"
         />
 
     </data>
