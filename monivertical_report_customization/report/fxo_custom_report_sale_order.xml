@@ -1,22 +1,32 @@
 <?xml version="1.0"?>
 <odoo>
-    <template id="monivertical_staandard_header" inherit_id="web.external_layout_standard" active="True">
+    <template id="monivertical_staandard_header" inherit_id="web.external_layout_standard" active="False">
         <xpath expr="//div[hasclass('header')]" position="replace">
             <div class="header">
                 <div class="row">
-                    <div class="col-xs-3 mb4">
-                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height: 45px;" />
+                    <div class="col-xs-3">
+                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 45px;" />
                     </div>
-                    <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto" />
+                    <div class="col-xs-5">
+                        <div class="row">
+                            <span style="font-size: 7px;" t-if="company.partner_id">Representante Exclusivo en Perú:</span>
+                        </div>
+                        <div class="row">
+                            <t t-foreach="company.partner_id" t-as="partner">
+                                <img t-if="partner.image" t-att-src="'data:image/png;base64,%s' % partner.image" style="max-height: 35px;" />
+                            </t>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 text-right" style="margin-top:20px;" t-field="company.report_header" />
                 </div>
-                <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                <div class="row zero_min_height">
                     <div class="col-xs-12">
                         <div style="border-bottom: 1px solid black;" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-6" name="company_address">
-                        <span t-field="company.partner_id" t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' style="border-bottom: 1px solid black; display:inline-block;" />
+                        <span t-field="company.partner_id" t-options="{'widget': 'contact', 'fields': ['address', 'name'], 'no_marker': true}" style="border-bottom: 1px solid black; display:inline-block;" />
                     </div>
                 </div>
             </div>
@@ -208,26 +218,25 @@
                     <tbody class="sale_tbody" style="font-size:10px; font-family:sans-serif">
                         <tr t-foreach="o.order_line" t-as="l" style="height:1px">
                             <div t-if="o.print_image">
-                                <td>
-                                    <span t-if="o.image_sizes == 'image_small'" t-field="l.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
-                                    <span t-if="o.image_sizes == 'image'" t-field="l.product_id.image" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
-                                    <span t-if="o.image_sizes == 'image_medium'" t-field="l.product_id.image_medium" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
-                                </td>
+                                <t t-if="o.image_sizes == 'image_small' and o.print_image ">
+                                    <td>
+                                        <span t-field="l.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
+                                    </td>
+                                </t>
                             </div>
                             <td>
                                 <span t-field="l.name" />
                             </td>
                             <td class="text-right">
-                                <span t-field="l.price_unit"/>
+                                <!-- <span t-field="l.list_price" /> -->
                             </td>
                             <div>
-                                <td t-if="o.print_discount" class="text-right">
-                                    <span t-esc="round(l.discount, 2)" />
+                                <td class="text-right">
                                     <!-- <span t-esc="round(l.total_discount,2)" /> -->
                                 </td>
                             </div>
                             <td class="text-right">
-                                <span t-esc="l.price_unit * (1.0 - l.discount / 100.0)"/>
+                                <span t-field="l.price_unit" />
                             </td>
                             <td class="text-right">
                                 <span t-esc="int(round(l.product_uom_qty,1))" />
