@@ -217,13 +217,13 @@
                     </thead>
                     <tbody class="sale_tbody" style="font-size:10px; font-family:sans-serif">
                         <tr t-foreach="o.order_line" t-as="l" style="height:1px">
-                            <div t-if="o.print_image">
-                                <t t-if="o.image_sizes == 'image_small' and o.print_image ">
-                                    <td>
+                            <td>
+                                <div t-if="o.print_image">
+                                    <t t-if="o.image_sizes == 'image_small' and o.print_image ">
                                         <span t-field="l.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
-                                    </td>
-                                </t>
-                            </div>
+                                    </t>
+                                </div>
+                            </td>
                             <td>
                                 <span t-field="l.name" />
                             </td>
