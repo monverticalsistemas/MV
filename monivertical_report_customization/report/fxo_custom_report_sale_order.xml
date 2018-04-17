@@ -228,15 +228,15 @@
                                 <span t-field="l.name" />
                             </td>
                             <td class="text-right">
-                                <!-- <span t-field="l.list_price" /> -->
+                                <span t-field="l.price_unit" />
                             </td>
-                            <div>
+                            <div t-if="o.print_discount">
                                 <td class="text-right">
-                                    <!-- <span t-esc="round(l.total_discount,2)" /> -->
+                                    <span t-esc="round(l.discount,2)" />
                                 </td>
                             </div>
                             <td class="text-right">
-                                <span t-field="l.price_unit" />
+                                <span t-esc="'%.2f'% ((1-l.discount / 100.0) * l.price_unit)"/>
                             </td>
                             <td class="text-right">
                                 <span t-esc="int(round(l.product_uom_qty,1))" />
