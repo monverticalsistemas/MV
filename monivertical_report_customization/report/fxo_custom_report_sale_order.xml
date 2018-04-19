@@ -217,33 +217,31 @@
                     </thead>
                     <tbody class="sale_tbody" style="font-size:10px; font-family:sans-serif">
                         <tr t-foreach="o.order_line" t-as="l" style="height:1px">
-                            <div t-if="o.print_image">
-                                <t t-if="o.image_sizes == 'image_small' and o.print_image ">
-                                    <td>
-                                        <span t-field="l.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
-                                    </td>
-                                </t>
-                            </div>
-                            <td>
-                                <span t-field="l.name" />
-                            </td>
-                            <td class="text-right">
-                                <!-- <span t-field="l.list_price" /> -->
-                            </td>
                             <div>
-                                <td class="text-right">
-                                    <!-- <span t-esc="round(l.total_discount,2)" /> -->
+                                <td>
+                                    <span t-field="l.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}"/>
                                 </td>
                             </div>
+                            <td>
+                                <span t-field="l.name"/>
+                            </td>
                             <td class="text-right">
                                 <span t-field="l.price_unit" />
                             </td>
+                            <div>
+                                <td class="text-right">
+                                    <span t-esc="round(l.discount,2)" />
+                                </td>
+                            </div>
                             <td class="text-right">
-                                <span t-esc="int(round(l.product_uom_qty,1))" />
-                                <span groups="product.group_uom" t-field="l.product_uom" />
+                                <span t-esc="'%.2f'% ((1-l.discount / 100.0) * l.price_unit)"/>
                             </td>
                             <td class="text-right">
-                                <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}' />
+                                <span t-esc="int(round(l.product_uom_qty,1))"/>
+                                <span groups="product.group_uom" t-field="l.product_uom"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-field="l.price_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.pricelist_id.currency_id}"/>
                             </td>
                         </tr>
                     </tbody>
