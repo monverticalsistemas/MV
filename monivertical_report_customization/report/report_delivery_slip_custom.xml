@@ -38,6 +38,7 @@
                                 </td>
                             </tr> 
                         </table>
+                        <t t-set="picking_partner" t-value="o.partner_shipping_id or o.partner_id"/>
                         <table width="100%" style="margin-top:1mm;">
                             <tr>
                                 <td style="padding-left: 38mm; height:7mm;">
@@ -46,12 +47,12 @@
                             </tr>
                             <tr>
                                 <td style="padding-left: 38mm; height:07mm;">
-                                    <t t-if="o.partner_shipping_id"> <span t-field="o.partner_shipping_id.street"/> </t>
+                                    <t t-if="picking_partner"> <span t-field="picking_partner.street"/> </t>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="padding-left: 65mm; height:07mm;">
-                                    <t t-if="o.partner_id"> <span t-field="o.partner_id.name"/> </t>
+                                    <t t-if="picking_partner"> <span t-field="picking_partner.name or picking_partner.parent_id.name"/></t>
                                 </td>
                             </tr>
                         </table>

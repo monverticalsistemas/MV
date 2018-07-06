@@ -6,7 +6,7 @@ Monivertical Report Customization
 =================================
 - Sale Report Customization
     """,
-    'depends': ['web', 'sale_management', 'stock', 'fleet', 'delivery'],
+    'depends': ['web', 'sale_management',  'point_of_sale', 'stock', 'fleet', 'delivery'],
     'data': [
             'data/paperformats.xml',
             # Report
@@ -24,7 +24,7 @@ Monivertical Report Customization
             'views/delivery_carrier_views.xml'
         ],
     'qweb': [],
-
+    'version': '1.2',
     'installable': True,
     'application': False,
 }
