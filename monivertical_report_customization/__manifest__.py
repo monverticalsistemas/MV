@@ -6,7 +6,7 @@ Monivertical Report Customization
 =================================
 - Sale Report Customization
     """,
-    'depends': ['web', 'sale_management',  'point_of_sale', 'stock', 'fleet', 'delivery'],
+    'depends': ['web', 'sale_management',  'point_of_sale', 'stock', 'fleet', 'delivery', 'base_automation', 'web_studio'],
     'data': [
             'data/paperformats.xml',
             'data/models.xml',
