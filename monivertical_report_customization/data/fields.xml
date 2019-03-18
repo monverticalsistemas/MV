@@ -153,5 +153,23 @@
       <field name="state">manual</field>
       <field name="model_id" ref="model_stock_picking_driver"/>
     </record>
+
 </data>
+<!-- default set values -->
+    <function id="company_default_x_sale_template_set"
+            model="ir.default" name="set"
+            eval="('res.company', 'x_sale_template', 'odoo_standard')"/>
+    <function id="company_default_x_custom_footer_set"
+            model="ir.default" name="set"
+            eval="('res.company', 'x_custom_footer', True)"/>
+
+    <function id="so_default_x_print_discount_set"
+            model="ir.default" name="set"
+            eval="('sale.order', 'x_print_discount', True)"/>
+    <function id="so_default_x_print_image_set"
+            model="ir.default" name="set"
+            eval="('sale.order', 'x_print_image', True)"/>
+    <function id="so_default_x_image_sizes_set"
+            model="ir.default" name="set"
+            eval="('sale.order', 'x_image_sizes', 'image_medium')"/>
 </odoo>
