@@ -102,14 +102,14 @@
       <field name="name">x_name</field>
       <field name="field_description">Name</field>
       <field name="ttype">char</field>
-      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="model_id" ref="model_stock_picking_driver"/>
       <field name="state">manual</field>
     </record>
     <record id="x_vehicle_id" model="ir.model.fields">
       <field name="name">x_vehicle_id</field>
       <field name="field_description">Vehículo</field>
       <field name="ttype">many2one</field>
-      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="model_id" ref="model_stock_picking_driver"/>
       <field name="relation">fleet.vehicle</field>
       <field name="state">manual</field>
     </record>
@@ -117,7 +117,7 @@
       <field name="name">x_carrier_id</field>
       <field name="field_description">Tipo de Distribución</field>
       <field name="ttype">many2one</field>
-      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="model_id" ref="model_stock_picking_driver"/>
       <field name="relation">delivery.carrier</field>
       <field name="state">manual</field>
     </record>
@@ -125,7 +125,7 @@
       <field name="name">x_company_id</field>
       <field name="field_description">Company</field>
       <field name="ttype">many2one</field>
-      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="model_id" ref="model_stock_picking_driver"/>
       <field name="relation">res.company</field>
       <field name="state">manual</field>
     </record>
@@ -133,14 +133,14 @@
       <field name="name">x_date_transport</field>
       <field name="field_description">F.Inicio de Transporte</field>
       <field name="ttype">char</field>
-      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="model_id" ref="model_stock_picking_driver"/>
       <field name="state">manual</field>
     </record>
     <record id="x_partner_id_driver" model="ir.model.fields">
       <field name="name">x_partner_id</field>
       <field name="field_description">Conductor</field>
       <field name="ttype">many2one</field>
-      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="model_id" ref="model_stock_picking_driver"/>
       <field name="relation">res.partner</field>
       <field name="state">manual</field>
     </record>
@@ -151,7 +151,7 @@
       <field name="relation">stock.picking</field>
       <field name="relation_field">x_driver_id</field>
       <field name="state">manual</field>
-      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="model_id" ref="model_stock_picking_driver"/>
     </record>
 </data>
 </odoo>

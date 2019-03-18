@@ -35,7 +35,7 @@
                                 </td>
 
                                 <td width="30%">
-                                    <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.date_transport"/> </t>
+                                    <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.x_date_transport"/> </t>
                                 </td>
                             </tr> 
                         </table>
@@ -74,13 +74,13 @@
                                         </tr> 
                                         <tr>
                                             <td style="padding-left: 40mm; height:7mm;">
-                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.carrier_id.partner_id.name"/> </t>
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.x_carrier_id.x_partner_id.name"/> </t>
                                             </td>
                                         </tr> 
                                         <tr>
                                             <td style="padding-left: 40mm; height:7mm;">
                                                 <br/>
-                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.carrier_id.partner_id.x_x_doc_number"/> </t>
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.x_carrier_id.x_partner_id.x_doc_number"/> </t>
                                             </td>
                                         </tr> 
                                     </table>
@@ -90,8 +90,8 @@
                                     <table width="100%"> 
                                         <tr>
                                             <td style="padding-left: 43mm; height:15mm;">
-                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.vehicle_id.model_id.brand_id.name"/></t>/
-                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.vehicle_id.license_plate"/></t>
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.x_vehicle_id.model_id.brand_id.name"/></t>/
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.x_vehicle_id.license_plate"/></t>
                                             </td>
                                         </tr> 
                                         <tr>
@@ -101,7 +101,7 @@
                                         </tr> 
                                         <tr>
                                             <td style="padding-left: 50mm; height:10mm;">
-                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.partner_id.ref"/></t>
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.x_partner_id.ref"/></t>
                                             </td>
                                         </tr> 
                                     </table>

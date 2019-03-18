@@ -10,6 +10,7 @@ Monivertical Report Customization
     'data': [
             'data/paperformats.xml',
             'data/models.xml',
+            'security/ir.model.access.csv',
             'data/fields.xml',
             # Report
             'report/classic_report_template.xml',
@@ -24,7 +25,6 @@ Monivertical Report Customization
             'views/stock_picking_views.xml',
             'views/res_company_views.xml',
             'views/delivery_carrier_views.xml',
-            'security/ir.model.access.csv,'
         ],
     'qweb': [],
     'version': '1.2',
