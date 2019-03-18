@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="sale_report_saleorder_document_monivertical" inherit_id="sale.report_saleorder_document" name="Report Saleorder Document Monivertical">
-        <xpath expr="//t[@t-foreach='doc.order_lines_layouted()']/table/thead/tr/th[1]" position='before'>
-            <t t-if="doc.print_image and doc.image_sizes in ('image ','image_medium ','image_small')">
+        <xpath expr="//table[hasclass('o_main_table')]/thead/tr/th[1]" position='before'>
+            <t t-if="doc.x_print_image and doc.x_image_sizes in ('image ','image_medium ','image_small')">
+                <t t-set="colspan" t-value="colspan+1"/>
                 <th>
                     Product Image
                 </th>
             </t>
         </xpath>
-        <xpath expr="//table/tbody[@class='sale_tbody']/t/t[2]/tr/td[1]" position='before'>
-            <t t-if="doc.image_sizes == 'image' and doc.print_image">
+        <xpath expr="//table/tbody[@class='sale_tbody']/t/tr//span[@t-field='line.name']/.." position='before'>
+            <t t-if="doc.x_image_sizes == 'image' and doc.x_print_image">
                 <td>
-                    <span t-field="l.product_id.image" t-options="{'widget': 'image', 'class': 'img-rounded'}"/>
+                    <span t-field="line.product_id.image" t-options="{'widget': 'image', 'class': 'img-rounded'}"/>
                 </td>
             </t>
-            <t t-if="doc.image_sizes == 'image_medium' and doc.print_image">
+            <t t-if="doc.x_image_sizes == 'image_medium' and doc.x_print_image">
                 <td>
-                    <span t-field="l.product_id.image_medium" t-options="{'widget': 'image', 'class': 'img-rounded'}"/>
+                    <span t-field="line.product_id.image_medium" t-options="{'widget': 'image', 'class': 'img-rounded'}"/>
                 </td>
             </t>
-            <t t-if="doc.image_sizes == 'image_small' and doc.print_image">
+            <t t-if="doc.x_image_sizes == 'image_small' and doc.x_print_image">
                 <td>
-                    <span t-field="l.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}"/>
+                    <span t-field="line.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}"/>
                 </td>
             </t>
         </xpath>
@@ -38,7 +39,7 @@
             </div>
         </xpath>
         <xpath expr="//div[@class='page']/p[@id='fiscal_position_remark']" position='after'>
-            <div t-if="doc.options and doc.state in ['draft', 'sent']" style='page-break-before:always;'>
+            <div t-if="doc.sale_order_option_ids and doc.state in ['draft', 'sent']" style='page-break-before:always;'>
                 <h2>
                 <span>Productos Sugeridos</span>
             </h2>
@@ -52,7 +53,7 @@
                         </tr>
                     </thead>
                     <tbody class='sale_tbody'>
-                        <tr t-foreach='doc.options' t-as='option'>
+                        <tr t-foreach='doc.sale_order_option_ids' t-as='option'>
                             <td>
                                 <span t-field="option.product_id.name"/>
                             </td>

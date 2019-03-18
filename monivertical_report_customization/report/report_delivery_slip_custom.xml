@@ -16,7 +16,7 @@
                         <table width="100%"> 
                             <tr>
                                 <td colspan="4" align="right">
-                                    <t t-if="o.doc_number"> <span t-field="o.doc_number"/> </t>
+                                    <t t-if="o.x_doc_number"> <span t-field="o.x_doc_number"/> </t>
                                 </td>
                             </tr>
                             <tr>
@@ -25,7 +25,8 @@
                                 </td>
 
                                 <td width="30%">
-                                    <t t-if="o.scheduled_date"> <span t-esc="time.strftime('%d/%m/%Y',time.strptime(o.scheduled_date,'%Y-%m-%d %H:%M:%S'))"/> </t>
+
+                                    <t t-if="o.scheduled_date"> <span t-esc="o.scheduled_date.strftime('%Y-%m-%d')" t-options="{'widget': 'date'}"/> </t>
 
                                 </td>
 
@@ -34,11 +35,11 @@
                                 </td>
 
                                 <td width="30%">
-                                    <t t-if="o.driver_id"> <span t-field="o.driver_id.date_transport"/> </t>
+                                    <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.date_transport"/> </t>
                                 </td>
                             </tr> 
                         </table>
-                        <t t-set="picking_partner" t-value="o.partner_shipping_id or o.partner_id"/>
+                        <t t-set="picking_partner" t-value="o.x_partner_shipping_id or o.partner_id"/>
                         <table width="100%" style="margin-top:1mm;">
                             <tr>
                                 <td style="padding-left: 38mm; height:7mm;">
@@ -52,7 +53,7 @@
                             </tr>
                             <tr>
                                 <td style="padding-left: 65mm; height:07mm;">
-                                    <t t-if="picking_partner"> <span t-field="picking_partner.name or picking_partner.parent_id.name"/></t>
+                                    <t t-if="picking_partner"> <span t-esc="picking_partner.name or picking_partner.parent_id.name"/></t>
                                 </td>
                             </tr>
                         </table>
@@ -73,13 +74,13 @@
                                         </tr> 
                                         <tr>
                                             <td style="padding-left: 40mm; height:7mm;">
-                                                <t t-if="o.driver_id"> <span t-field="o.driver_id.carrier_id.partner_id.name"/> </t>
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.carrier_id.partner_id.name"/> </t>
                                             </td>
                                         </tr> 
                                         <tr>
                                             <td style="padding-left: 40mm; height:7mm;">
                                                 <br/>
-                                                <t t-if="o.driver_id"> <span t-field="o.driver_id.carrier_id.partner_id.x_doc_number"/> </t>
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.carrier_id.partner_id.x_x_doc_number"/> </t>
                                             </td>
                                         </tr> 
                                     </table>
@@ -89,8 +90,8 @@
                                     <table width="100%"> 
                                         <tr>
                                             <td style="padding-left: 43mm; height:15mm;">
-                                                <t t-if="o.driver_id"> <span t-field="o.driver_id.vehicle_id.model_id.brand_id.name"/></t>/
-                                                <t t-if="o.driver_id"> <span t-field="o.driver_id.vehicle_id.license_plate"/></t>
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.vehicle_id.model_id.brand_id.name"/></t>/
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.vehicle_id.license_plate"/></t>
                                             </td>
                                         </tr> 
                                         <tr>
@@ -100,7 +101,7 @@
                                         </tr> 
                                         <tr>
                                             <td style="padding-left: 50mm; height:10mm;">
-                                                <t t-if="o.driver_id"> <span t-field="o.driver_id.partner_id.ref"/></t>
+                                                <t t-if="o.x_driver_id"> <span t-field="o.x_driver_id.partner_id.ref"/></t>
                                             </td>
                                         </tr> 
                                     </table>
@@ -156,7 +157,7 @@
                                 </td>
 
                                 <td width="35%" align="center">
-                                    <t t-if="o.picking_type_id.sunat_operation_type"> <span t-field="o.picking_type_id.sunat_operation_type"/> </t>
+                                    <t t-if="o.picking_type_id.x_sunat_operation_type"> <span t-field="o.picking_type_id.x_sunat_operation_type"/> </t>
                                 </td>
                                 <td width="50%" rowspan="2">
                                     

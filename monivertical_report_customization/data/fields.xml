@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data noupdate="1">
+
+    <record id="x_partner_id" model="ir.model.fields">
+      <field name="name">x_partner_id</field>
+      <field name="field_description">Transporter Company</field>
+      <field name="ttype">many2one</field>
+      <field name="model_id" ref="delivery.model_delivery_carrier"/>
+      <field name="relation">res.partner</field>
+      <field name="state">manual</field>
+    </record>
+
+    <record id="x_sale_template" model="ir.model.fields">
+      <field name="name">x_sale_template</field>
+      <field name="field_description">Venta</field>
+      <field name="ttype">selection</field>
+      <field name="model_id" ref="base.model_res_company"/>
+      <!-- default='odoo_standard' -->
+      <field name="selection">[('classic', "Clásico"), ('fency', "Lujoso"), ('modern', "Moderno"), ('odoo_standard', "Odoo Standard")]</field>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_custom_footer" model="ir.model.fields">
+      <!-- default=True -->
+      <field name="name">x_custom_footer</field>
+      <field name="field_description">Custom footer</field>
+      <field name="ttype">boolean</field>
+      <field name="model_id" ref="base.model_res_company"/>
+      <field name="state">manual</field>
+      <field name="help">Check this to define the report footer manually. Otherwise it will be filled in automatically.</field>
+    </record>
+
+    <record id="x_doc_number" model="ir.model.fields">
+      <field name="name">x_doc_number</field>
+      <field name="field_description">Doc Number</field>
+      <field name="ttype">char</field>
+      <field name="model_id" ref="base.model_res_partner"/>
+      <field name="state">manual</field>
+    </record>
+
+    <record id="x_print_discount" model="ir.model.fields">
+      <!-- default=True -->
+      <field name="name">x_print_discount</field>
+      <field name="field_description">Print Discount</field>
+      <field name="ttype">boolean</field>
+      <field name="model_id" ref="sale.model_sale_order"/>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_print_image" model="ir.model.fields">
+      <!-- default=True -->
+      <field name="name">x_print_image</field>
+      <field name="field_description">Print Image</field>
+      <field name="ttype">boolean</field>
+      <field name="model_id" ref="sale.model_sale_order"/>
+      <field name="state">manual</field>
+      <field name="help">If ticked, you can see the product image in report of sale order/quotation</field>
+    </record>
+    <record id="x_image_sizes" model="ir.model.fields">
+      <field name="name">x_image_sizes</field>
+      <field name="field_description">Image Size</field>
+      <field name="ttype">selection</field>
+      <field name="model_id" ref="sale.model_sale_order"/>
+      <!-- default='image_medium' -->
+      <field name="selection">[('image', "Big Size Image"), ('image_small', "Small Size Image"), ('image_medium', "Medium Size Image")]</field>
+      <field name="state">manual</field>
+      <field name="help">Image size to be displayed in report</field>
+    </record>
+
+    <record id="x_sunat_operation_type" model="ir.model.fields">
+      <field name="name">x_sunat_operation_type</field>
+      <field name="field_description">Tipo de Producto</field>
+      <field name="ttype">char</field>
+      <field name="model_id" ref="stock.model_stock_picking_type"/>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_doc_number_stock" model="ir.model.fields">
+      <field name="name">x_doc_number</field>
+      <field name="field_description">Doc Number</field>
+      <field name="ttype">char</field>
+      <field name="model_id" ref="stock.model_stock_picking"/>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_driver_id" model="ir.model.fields">
+      <field name="name">x_driver_id</field>
+      <field name="field_description">Picking Driver</field>
+      <field name="ttype">many2one</field>
+      <field name="model_id" ref="stock.model_stock_picking"/>
+      <field name="relation">x_stock.picking.driver</field>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_partner_shipping_id" model="ir.model.fields">
+      <field name="name">x_partner_shipping_id</field>
+      <field name="field_description">Shipping Address</field>
+      <field name="ttype">many2one</field>
+      <field name="model_id" ref="stock.model_stock_picking"/>
+      <field name="relation">res.partner</field>
+      <field name="state">manual</field>
+    </record>
+
+
+    <record id="x_name" model="ir.model.fields">
+      <field name="name">x_name</field>
+      <field name="field_description">Name</field>
+      <field name="ttype">char</field>
+      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_vehicle_id" model="ir.model.fields">
+      <field name="name">x_vehicle_id</field>
+      <field name="field_description">Vehículo</field>
+      <field name="ttype">many2one</field>
+      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="relation">fleet.vehicle</field>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_carrier_id" model="ir.model.fields">
+      <field name="name">x_carrier_id</field>
+      <field name="field_description">Tipo de Distribución</field>
+      <field name="ttype">many2one</field>
+      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="relation">delivery.carrier</field>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_company_id" model="ir.model.fields">
+      <field name="name">x_company_id</field>
+      <field name="field_description">Company</field>
+      <field name="ttype">many2one</field>
+      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="relation">res.company</field>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_date_transport" model="ir.model.fields">
+      <field name="name">x_date_transport</field>
+      <field name="field_description">F.Inicio de Transporte</field>
+      <field name="ttype">char</field>
+      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_partner_id_driver" model="ir.model.fields">
+      <field name="name">x_partner_id</field>
+      <field name="field_description">Conductor</field>
+      <field name="ttype">many2one</field>
+      <field name="model_id" ref="x_stock_picking_driver"/>
+      <field name="relation">res.partner</field>
+      <field name="state">manual</field>
+    </record>
+    <record id="x_picking_ids" model="ir.model.fields">
+      <field name="name">x_picking_ids</field>
+      <field name="field_description">Pickings</field>
+      <field name="ttype">one2many</field>
+      <field name="relation">stock.picking</field>
+      <field name="relation_field">x_driver_id</field>
+      <field name="state">manual</field>
+      <field name="model_id" ref="x_stock_picking_driver"/>
+    </record>
+</data>
+</odoo>

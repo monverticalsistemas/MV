@@ -6,9 +6,9 @@
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="partner_shipping_id"/>
-                <field name="driver_id"/>
-                <field name="doc_number"/>
+                <field name="x_partner_shipping_id"/>
+                <field name="x_driver_id"/>
+                <field name="x_doc_number"/>
             </xpath>
         </field>
     </record>
@@ -18,7 +18,7 @@
         <field name="inherit_id" ref="stock.view_picking_type_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='warehouse_id']" position="after">
-                <field name="sunat_operation_type"/>
+                <field name="x_sunat_operation_type"/>
             </xpath> 
         </field>
     </record>

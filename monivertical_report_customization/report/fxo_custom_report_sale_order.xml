@@ -110,10 +110,10 @@
     <template id="nanotec_layouts_external_layout_footer1">
         <div class="footer">
             <div class="text-center" style="border-top: 1px solid black; font-size:10px; font-family:sans-serif">
-                <ul t-if="not company.custom_footer" class="list-inline">
+                <ul t-if="not company.x_custom_footer" class="list-inline">
                     <li t-if="company.phone">Phone: <span t-field="company.phone" /></li>
-                    <li t-if="company.fax and company.phone">&amp;bull;</li>
-                    <li t-if="company.fax">Fax: <span t-field="company.fax" /></li>
+                    <li t-if="company.phone">&amp;bull;</li>
+                    <!-- <li t-if="company.fax">Fax: <span t-field="company.fax" /></li> -->
                     <li t-if="company.email">&amp;bull;</li>
                     <li t-if="company.email">Email: <span t-field="company.email" /></li>
                     <li t-if="company.website">&amp;bull;</li>
@@ -202,12 +202,12 @@
                 <table class="table table-condensed" style="border-top: 1px solid black; font-size:10px; font-family:sans-serif">
                     <thead>
                         <tr style="hight:30px">
-                            <div t-if="o.print_image">
+                            <div t-if="o.x_print_image">
                                 <th class="text-left">Product Image</th>
                             </div>
                             <th>Descripción</th>
                             <th class="text-right">PVTA</th>
-                            <div t-if="o.print_discount">
+                            <div t-if="o.x_print_discount">
                                 <th class="text-right">%Desc</th>
                             </div>
                             <th class="text-right">PVP PVA</th>
@@ -217,8 +217,8 @@
                     </thead>
                     <tbody class="sale_tbody" style="font-size:10px; font-family:sans-serif">
                         <tr t-foreach="o.order_line" t-as="l" style="height:1px">
-                            <div t-if="o.print_image">
-                                <t t-if="o.image_sizes == 'image_small' and o.print_image ">
+                            <div t-if="o.x_print_image">
+                                <t t-if="o.x_image_sizes == 'image_small' and o.x_print_image ">
                                     <td>
                                         <span t-field="l.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
                                     </td>
