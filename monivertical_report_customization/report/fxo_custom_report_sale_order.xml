@@ -202,7 +202,7 @@
                 <table class="table table-condensed" style="border-top: 1px solid black; font-size:10px; font-family:sans-serif">
                     <thead>
                         <tr style="hight:30px">
-                            <div t-if="o.x_print_image">
+                            <div t-if="o.x_print_image and o.x_image_sizes == 'image_small'">
                                 <th class="text-left">Product Image</th>
                             </div>
                             <th>Descripción</th>
@@ -218,11 +218,9 @@
                     <tbody class="sale_tbody" style="font-size:10px; font-family:sans-serif">
                         <tr t-foreach="o.order_line" t-as="l" style="height:1px">
                             <div t-if="o.x_print_image">
-                                <t t-if="o.x_image_sizes == 'image_small' and o.x_print_image ">
-                                    <td>
-                                        <span t-field="l.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
-                                    </td>
-                                </t>
+                                <td t-if="o.x_image_sizes == 'image_small'">
+                                    <span  t-field="l.product_id.image_small" t-options="{'widget': 'image', 'class': 'img-rounded'}" />
+                                </td>
                             </div>
                             <td>
                                 <span t-field="l.name" />
