@@ -144,7 +144,7 @@
       <field name="relation">res.partner</field>
       <field name="state">manual</field>
     </record>
-    <record id="x_picking_ids" model="ir.model.fields">
+<!--     <record id="x_picking_ids" model="ir.model.fields">
       <field name="name">x_picking_ids</field>
       <field name="field_description">Pickings</field>
       <field name="ttype">one2many</field>
@@ -152,7 +152,7 @@
       <field name="relation_field">x_driver_id</field>
       <field name="state">manual</field>
       <field name="model_id" ref="model_stock_picking_driver"/>
-    </record>
+    </record> -->
 
 </data>
 <!-- default set values -->
