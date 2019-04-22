@@ -6,9 +6,12 @@ Monivertical Report Customization
 =================================
 - Sale Report Customization
     """,
-    'depends': ['web', 'sale_management',  'point_of_sale', 'stock', 'fleet', 'delivery'],
+    'depends': ['web', 'sale_management', 'stock', 'fleet', 'delivery', 'base_automation', 'web_studio'],
     'data': [
             'data/paperformats.xml',
+            'data/models.xml',
+            'security/ir.model.access.csv',
+            'data/fields.xml',
             # Report
             'report/classic_report_template.xml',
             'report/fency_report_template.xml',
@@ -21,7 +24,7 @@ Monivertical Report Customization
             # views
             'views/stock_picking_views.xml',
             'views/res_company_views.xml',
-            'views/delivery_carrier_views.xml'
+            'views/delivery_carrier_views.xml',
         ],
     'qweb': [],
     'version': '1.2',

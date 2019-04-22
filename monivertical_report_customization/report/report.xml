@@ -3,16 +3,16 @@
     <template id="report_saleorder">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
-                <t t-if="doc.company_id.sale_template == 'classic'">
+                <t t-if="doc.company_id.x_sale_template == 'classic'">
                     <t t-call="monivertical_report_customization.classic_report_saleorder_document" t-lang="doc.partner_id.lang"/>
                 </t>
-                <t t-if="doc.company_id.sale_template == 'fency'">
+                <t t-if="doc.company_id.x_sale_template == 'fency'">
                     <t t-call="monivertical_report_customization.fency_report_saleorder_document" t-lang="doc.partner_id.lang"/>
                 </t>
-                <t t-if="doc.company_id.sale_template == 'modern'">
+                <t t-if="doc.company_id.x_sale_template == 'modern'">
                     <t t-call="monivertical_report_customization.modern_report_saleorder_document" t-lang="doc.partner_id.lang"/>
                 </t>
-                <t t-if="doc.company_id.sale_template == 'odoo_standard'">
+                <t t-if="doc.company_id.x_sale_template == 'odoo_standard'">
                     <t t-call="monivertical_report_customization.odoo_std_report_saleorder_document" t-lang="doc.partner_id.lang"/>
                 </t>
             </t>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="model_stock_picking_driver" model="ir.model">
+            <field name="name">Stock Picking Driver</field>
+            <field name="model">x_stock.picking.driver</field>
+            <field name="state">manual</field>
+        </record>
+    </data>
+</odoo>
