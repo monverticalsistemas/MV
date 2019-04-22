@@ -30,13 +30,13 @@
       <field name="help">Check this to define the report footer manually. Otherwise it will be filled in automatically.</field>
     </record>
 
-    <record id="x_doc_number" model="ir.model.fields">
+<!--     <record id="x_doc_number" model="ir.model.fields">
       <field name="name">x_doc_number</field>
       <field name="field_description">Doc Number</field>
       <field name="ttype">char</field>
       <field name="model_id" ref="base.model_res_partner"/>
       <field name="state">manual</field>
-    </record>
+    </record> -->
 
     <record id="x_print_discount" model="ir.model.fields">
       <!-- default=True -->
